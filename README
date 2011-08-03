@@ -1,0 +1,71 @@
+openSSI-webView > readme
+-------------------------------------------------------------------------
+
+A simple web monitoring interface for your openSSI cluster.
+
+
+  Version 0.2
+  ===========
+    http://openssi-webview.sourceforge.net
+
+    Copyright (C) 2004 Kilian CAVALOTTI 
+		      <kilian.cavalotti_at_stix.polytechnique.fr>
+    
+    This software is governed by the CeCILL  license under French law and
+    abiding by the rules of distribution of free software.  You can  use, 
+    modify and/ or redistribute the software under the terms of the CeCILL
+    license as circulated by CEA, CNRS and INRIA at the following URL
+    "http://www.cecill.info". 
+    
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    CeCILL license for more details.
+
+
+REQUIREMENTS
+------------
+	PHP >= 4.1.0	http://www.php.net
+	RRDTool		http://people.ee.ethz.ch/~oetiker/webtools/rrdtool
+	
+	a cron daemon	(everybody got this)
+	a web browser	(duh, you kiddin'!)
+	
+	* Optionally:
+	php-rrdtool     http://www.joeym.net
+	                  php rrdtool bindings, may improve performance in 
+			  graphs creation
+	sudo		http://www.courtesan.com/sudo
+
+
+SUMMARY
+-------
+	openSSI-webView aims to be a simple and easy-to-use monitoring solution 
+   	for openSSI clusters. It allows the cluster administrator to keep an eye
+   	on the cluster health, to quick view each node state and load, and to 
+   	watch and even migrate users processes all accross the cluster.
+    
+	openSSI-webView components are: 
+	- a set of PHP scripts, the web interface itself,
+	- a couple of shell scripts, to retrieve and store data about the cluster,
+	- a cronjob, to update data on a 5mn basis,
+
+DOWNLOAD
+--------
+	You can get the latest version at 
+		http://openssi-webview.sourceforge.net
+
+CHANGELOG
+---------
+	See CHANGELOG
+
+INSTALLATION
+------------
+	See INSTALL
+
+DOCUMENTATION/FAQ
+-----------------
+	See FAQ
+
+-------------------------------------------------------------------------
+# vim:set tabstop=4 softtabstop=4 shiftwidth=4 expandtab:	

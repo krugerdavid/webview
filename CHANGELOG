@@ -1,0 +1,36 @@
+openSSI-webView > changelog
+-------------------------------------------------------------------------
+
+### version 0.2 aka "users' voice"
+
+    + added configuration page
+    + added uid information in "show processes" page
+    x fixed a javascript bug in "cluster map" toggle details visibility
+    x fixed a cosmetic bug in "cluster map" nodes details 
+    * PHP5 compatibility
+    * removed dependency to php_rrdtool bindings
+    * collapsable sections in "stats & graphs"
+    i changed (master/slave) denomination to (init nodes/nodes)
+    i sourceforge hosting
+
+ -- Kilian CAVALOTTI <kilian.cavalotti_at_stix.polytechnique.fr> 
+    Fri, 05 Nov 2004 13:18:50 +0100
+    
+
+### version 0.1 aka "initial release"
+
+    + initial release
+
+ -- Kilian CAVALOTTI <kilian.cavalotti_at_stix.polytechnique.fr> 
+    Thu, 14 Oct 2004 09:19:56 +0100  
+
+-------------------------------------------------------------------------
+
+legend: + added
+        x fixed
+        * improved/changed
+        - removed
+        i information
+
+-------------------------------------------------------------------------
+# vim:set tabstop=4 softtabstop=4 shiftwidth=4 expandtab:

@@ -1,0 +1,50 @@
+openSSI webView > faq
+-------------------------------------------------------------------------
+
+openSSI-webView Frequently Asked Questions
+
+***
+
+Q/ What is the licence for this tool?
+
+A/ CeCILL. CeCILL is a French free software licence, fully compatible 
+   with the GNU GPL. You can download it from <http://cecill.info>
+
+***
+
+Q/ I get this error message when I try to migrate processes
+
+	"This system does not seems to be configured to allow process
+	 migration from here. Please refer to the documentation for
+	 instructions on how to enable process migration from
+	 openSSI webView"
+
+A/ Your system is not configured to allow process migration. If you want
+   to enable this feature, you should install sudo
+   <http://www.courtesan.com/sudo> and add the following line to your
+   /etc/sudoers file:
+
+	<USER> ALL = NOPASSWD:/usr/bin/migrate
+
+   Replace <USER> with the valid user specified in the previous step, and
+   be careful to exactly respect this syntax, as openSSI webView scripts 
+   rely on it.
+   After this, you should be able to migrate processes from the
+   openSSI webView process page.
+
+***
+
+Q/ What are 'system processes', and why can't I migrate them?
+
+A/ openSSI webView considers all processes whose uid is strictly smaller 
+   than 1000 (uid < 1000) as system processes. Modern unices often start 
+   creating users with uid greater than 1000, and keep smaller uids for 
+   non-interactive users. The ability to migrate system processes from a 
+   web interface could certainly be considered as a security issue, 
+   that's why it's disabled by default. However, this behaviour can be 
+   configured or disabled in the openSSI webView configuration file 
+   (config.php)
+
+
+-------------------------------------------------------------------------
+# vim:set tabstop=4 softtabstop=4 shiftwidth=4 expandtab:

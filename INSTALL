@@ -1,0 +1,71 @@
+openSSI-webView > install
+-------------------------------------------------------------------------
+
+
+openSSI-webView installation steps:
+
+
+1. Extract the distribution tarball, either directly in your webserver 
+   document root, or in the directory of your choice:
+
+	$ cd <DESTDIR>
+	$ tar xfvj openssi-webview-0.1.tar.bz2
+
+
+2. Set the appropriate permissions on :
+    - the graphs directory, for graph generation and data gathering, 
+    - the config.php file, to be able to modify and save settings 
+      from the web interface
+   
+   	$ cd <DESTDIR>/openssi-webview
+	$ chown -R <USER> graphs
+	$ chown <USER> config.php
+
+   Enter a valid username for <USER>, this user will also be used in the
+   next step for data gathering. Usually, choosing apache user as <USER>
+   (named www-data on Debian) is fine.
+
+
+3. According to your cron daemon, add a line to your /etc/crontab file,
+   or create a new file in /etc/cron.d/ with the following contents:
+
+	*/5 * * * * <USER> [ -d <DESTDIR> ] && ( cd <DESTDIR> && ./graphs/update_all.sh )
+
+   Replace <USER> with the valid user specified in the previous step.
+   Replace <DESTDIR> with your full openSSI-webView path.
+			   
+
+<Optionally>
+3b. If you want to enable process migration from openSSI-webView 
+   interface, you should install sudo, and add the following line to your
+   sudoers file:
+
+	<USER> ALL = NOPASSWD:/usr/bin/migrate
+
+   Replace <USER> with the valid user specified in the previous step.
+   Be careful to exactly respect this syntax.
+</Optionally>
+
+
+4. Configure your webserver to display the contents of your installation
+   directory. Eg., for Apache:	
+
+	Alias /openssi-webview /usr/share/openssi-webview
+		
+   You can (and are strongly encouraged to) add password or IP based 
+   access restrictions to your openSSI webView web directory, to keep 
+   your cluster informations private, or to prevent access from 
+   unauthorized clients. We'd especially recommend to restrict access to 
+   the processes.php and settings.php pages, from where you can migrate 
+   users processes. 
+   Please refer to you webserver documentation for more information.
+
+5. Point your web browser to: 
+
+	http://<YOURSERVER>/openssi-webview
+   
+   and enjoy! 
+   
+-------------------------------------------------------------------------
+# vim:set tabstop=4 softtabstop=4 shiftwidth=4 expandtab:	
+
