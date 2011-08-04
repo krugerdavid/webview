@@ -88,7 +88,7 @@ require_once('./common.inc.php'); ?>
                                     <a class="silent" href="graph_disp.php?t=stats&#038;n=<?=${$type}->id?>#nodes">
                                     <img alt="node<?=${$type}->id?>" src="images/<?='small_'.$type.'node_'.$status?>.png"/></a></td>
                                     <td><div class="nodeslight">
-                                        <div><b> > node <?=${$type}->id;?> : <?=${$type}->hostname;?></b></div>
+                                        <div><b> &raquo; node <?=${$type}->id;?> : <?=${$type}->hostname;?></b></div>
                                         <div class="bartight">
                                             <?display_node_load(${$type});?>
                                         </div></div>
