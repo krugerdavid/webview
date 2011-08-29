@@ -58,21 +58,21 @@ require_once(CONFIGFILE);
 
     <body>
 
-<? display_header(); ?>
+        <? display_header(); ?>
 
         <div id="content">
             <div class="container">
 
                 <div class="span-6 prepend-top">
-<? display_menu(); ?>
+                    <? display_menu(); ?>
                 </div>
 
                 <div class="span-17 prepend-top last"><?
-display_intro("processes");
-check_ssi_system();
+                    display_intro("processes");
+                    check_ssi_system();
 
-javascript_warning();
-?>
+                    javascript_warning();
+                    ?>
 
                     <?
                     $user = $_GET['u'];
@@ -223,22 +223,22 @@ javascript_warning();
                                     <tr><td width="150px">Select <?= $type ?> to display</td>
                                         <td><select name="<?= $type[0] ?>" onchange="javascript:this.form.submit()">
                                                 <option value="">all</option> <?
-                                            if (sizeof(${$type . 's'}) != 0) {
-                                                foreach (${$type . 's'} as $item) {
-                                                    ?>
+                        if (sizeof(${$type . 's'}) != 0) {
+                            foreach (${$type . 's'} as $item) {
+                                ?>
                                                         <option <? if (${$type} == $item)
-                                                        echo "selected=\"selected\""; ?> value="<?= $item ?>"><?= $item ?></option> <?
-                                                }
+                                                echo "selected=\"selected\""; ?> value="<?= $item ?>"><?= $item ?></option> <?
                                             }
-                                            ?>
-                                            </select></td></tr> <?
                                         }
-                                        if ($PREVENT_SYSPROC_MIGR) {
-                                            ?>
+                        ?>
+                                            </select></td></tr> <?
+                                            }
+                                            if ($PREVENT_SYSPROC_MIGR) {
+                        ?>
                                     <tr><td colspan="2">
                                             <input type="checkbox" name="ns" <? if ($no_syst)
-                                                echo "checked=\"checked\""; ?> onclick="javascript:this.form.submit()"/>Hide system processes (uid &#060; <?= $SYSPROC_MAXUID ?>)</td></tr>
-                                            <? } ?>
+                                    echo "checked=\"checked\""; ?> onclick="javascript:this.form.submit()"/>Hide system processes (uid &#060; <?= $SYSPROC_MAXUID ?>)</td></tr>
+                                    <? } ?>
                             </table>
                         </div>
 
@@ -249,14 +249,14 @@ javascript_warning();
                                         then click on the process PID in the list below.</td></tr>
                                 <tr><td width="150px">Select node to migrate to</td>
                                     <td><select <? if ($migr_disable)
-                                                echo "disabled"; ?> name="mt" onchange="javascript:this.form.submit()">
+                                        echo "disabled"; ?> name="mt" onchange="javascript:this.form.submit()">
                                             <option value="">choose a node</option> <?
                                             $fastnode = @exec("fastnode", $fastout, $fastret);
                                             if ($fastret == 0)
                                                 
-                                                ?> <option value="<?= $fastnode ?>">-- fastest (<?= $fastnode ?>) --</option> <? foreach (explode(" ", exec("cluster")) as $item) { ?>
+                                        ?> <option value="<?= $fastnode ?>">-- fastest (<?= $fastnode ?>) --</option> <? foreach (explode(" ", exec("cluster")) as $item) { ?>
                                                 <option <? if ($migr_node == $item)
-                        echo "selected=\"selected\""; ?> value="<?= $item ?>"><?= $item ?></option> <? } ?>
+                                                echo "selected=\"selected\""; ?> value="<?= $item ?>"><?= $item ?></option> <? } ?>
                                         </select>
                                     </td></tr>
                             </table>
@@ -264,95 +264,95 @@ javascript_warning();
                         <div class="spacer"></div>
                     </form>
 
-                        <? if ($migr_msg != "") { ?>
+                    <? if ($migr_msg != "") { ?>
                         <div class="warning_<?= $migr_color ?>"><?= $migr_msg ?></div> <?
-                    }
+                }
 
-                    ## ==================================================================
-                    ##
-                    ## ps errors
-                    ##
-                    ## ==================================================================
+                ## ==================================================================
+                ##
+                ## ps errors
+                ##
+                ## ==================================================================
 
-                    if ($ps_error) {
+                if ($ps_error) {
                         ?>
                         <br />
                         <h1>Error</h1>
                         <div class="warning_red">
                             Your request did not output any result. <br /> <?
-                        switch ($ps_error) {
-                            case 1:
-                                if (sizeof($ps_output) != 0) {
-                                        ?>
+                    switch ($ps_error) {
+                        case 1:
+                            if (sizeof($ps_output) != 0) {
+                                    ?>
                                     </div>
                                     <br /><b>Error output: </b> <br />
                                     <pre> <? foreach ($ps_output as $line) { ?>
-                    <?= $line ?><br /> <? } ?>
+                                            <?= $line ?><br /> <? } ?>
                                     </pre>
-                <?
-            }
-            break;
-        case 2:
-            ?>
+                                    <?
+                                }
+                                break;
+                            case 2:
+                                ?>
                                 Try to query again, with less strict parameters.
-            <?
-            break;
-    }
-    ?>
+                                <?
+                                break;
+                        }
+                        ?>
                     </div></div>
-    <? display_menu();
-    display_footer(); ?>
+                <? display_menu();
+                display_footer(); ?>
                 <br /><br />
         </body>
     </html> <?
-    exit;
-}
+            exit;
+        }
 
 ## ==================================================================
 ##
 ## processes table display
 ##
 ## ================================================================== 
-?>
+            ?>
 
 <br />
 
 <table class="procs">
     <tr class="procheader"> <?
-        foreach (array("user" => "user",
-    "uid" => "uid",
-    "node" => "node",
-    "pid" => "pid",
-    "pcpu" => "%cpu",
-    "pmem" => "%mem",
-    "nice" => "nice",
-    "tty" => "tty",
-    "stat" => "state",
-    "start" => "start",
-    "time" => "time",
-    "comm" => "command") as $key => $text) {
-            ?>
+foreach (array("user" => "user",
+ "uid" => "uid",
+ "node" => "node",
+ "pid" => "pid",
+ "pcpu" => "%cpu",
+ "pmem" => "%mem",
+ "nice" => "nice",
+ "tty" => "tty",
+ "stat" => "state",
+ "start" => "start",
+ "time" => "time",
+ "comm" => "command") as $key => $text) {
+                ?>
             <td><?= $text ?> <a class="procheader"
-                              href="processes.php?u=<?= $user ?>&#038;ns=<?= $no_syst ?>&#038;n=<?= $node ?>&#038;s=d<?= $key ?>">^</a>/<a
-                              class="procheader"
-                              href="processes.php?u=<?= $user ?>&#038;ns=<?= $no_syst ?>&#038;n=<?= $node ?>&#038;s=a<?= $key ?>">v</a>
+                                href="processes.php?u=<?= $user ?>&#038;ns=<?= $no_syst ?>&#038;n=<?= $node ?>&#038;s=d<?= $key ?>">^</a>/<a
+                                class="procheader"
+                                href="processes.php?u=<?= $user ?>&#038;ns=<?= $no_syst ?>&#038;n=<?= $node ?>&#038;s=a<?= $key ?>">v</a>
             </td> <? } ?>
     </tr>
 
-            <?
-            foreach ($procs as $proc) {
-                $row_color = ($row_count % 2) ? $color1 : $color2;
-                # highlight migrated process
-                if ($proc["pid"] == $migr_pid and $migr_node != 0) {
-                    $row_color = $display_vars["color_" . $migr_color . "_light"];
-                }
-                ?>
+    <?
+    foreach ($procs as $proc) {
+        $row_color = ($row_count % 2) ? $color1 : $color2;
+        # highlight migrated process
+        if ($proc["pid"] == $migr_pid and $migr_node != 0) {
+            $row_color = $display_vars["color_" . $migr_color . "_light"];
+        }
+        ?>
 
         <tr style="background-color:<?= $row_color ?>"> <?
-                foreach ($proc as $key => $field) {
-                    switch ($key) {
-                        case "pid" :
-                            ?>
+    foreach ($proc as $key => $field) {
+        switch ($key) {
+            case "pid" :
+                    ?>
                         <td><a class="pid" title="migrate process <?= $field ?>"
                                href="processes.php?u=<?= $user ?>&#038;ns=<?= $no_syst ?>&#038;n=<?= $node ?>&#038;pid=<?= $field ?>&#038;mt=<?= $migr_node ?>&#038;s=<?= $sort_by ?>"><?= $field ?></a></td> <?
                 break;
@@ -360,24 +360,24 @@ javascript_warning();
             case "pmem" :
                 $color = (($field < 30) ? $display_vars["color_green_light"] :
                                 (($field < 75) ? $display_vars["color_orange_light"] : $display_vars["color_red_light"]));
-                ?>
+                    ?>
                         <td bgcolor="<?= $color ?>"><?= $field ?></td> <?
                 break;
             case "user":
             case "comm" :
-                ?>
+                    ?>
                         <td align="left"><?= $field ?></td> <?
                 break;
             default :
-                            ?>
+                    ?>
                         <td><?= $field ?></td> <?
         }
     }
-    ?>
+        ?>
         </tr> <?
-    $row_count++;
-}
-            ?>
+        $row_count++;
+    }
+    ?>
 </table>
 </div>  
 

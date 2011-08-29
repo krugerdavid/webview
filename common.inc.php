@@ -403,14 +403,14 @@ function display_intro($location) {
                 break;
             case "show_nodes":
                 ?>
-                <h3>openSSI webView > cluster map</h3>
-                Here you can view your cluster nodes, and some stats about them: load, current state, boot time, hardware details, and so on.
-                You can hover computer icons to display more information, and clicking them will bring the statistics page.
+                <h2 class="title clustermap">Cluster Map</h2>
+                <p>Here you can view your cluster nodes, and some stats about them: load, current state, boot time, hardware details, and so on.
+                You can hover computer icons to display more information, and clicking them will bring the statistics page.</p>
             <?
             break;
         case "stats":
             ?>
-                <h2>Stats</h2>
+                <h2 class="title graphandstats">Stats</h2>
                 <p>Here you can view some graphical statistics about your openSSI cluster:</p>
                 <ul>
                     <li><a href="#overview">Cluster overview</a> gathers links bringing to thematic stats pages, showing data accross the cluster. </li>
@@ -443,11 +443,11 @@ function display_intro($location) {
             $stats_what = $GLOBALS["stats_what"];
             if (array_key_exists($location, $stats_what)) {
                 ?>
-                    <h3>openSSI webView > stats > <?= $location ?></h3>
-                    Here is a graphical overview of the <?= strtolower($stats_what[$location]) ?> on selected nodes. <? } else { ?>
-                    <h3>openSSI webView > 404</h3>
-                    I don't know where I am, so I can't say anything about the page you're currently viewing. <br />
-                    Well, hmm, how are you? :)
+                    <h3><?= $location ?></h3>
+                    <p>Here is a graphical overview of the <?= strtolower($stats_what[$location]) ?> on selected nodes.</p> <? } else { ?>
+                    <h2>404</h2>
+                    <p>I don't know where I am, so I can't say anything about the page you're currently viewing.
+                    Well, hmm, how are you? :)</p>
                 </div></div>
                 <br /><br />
                 <? display_menu();

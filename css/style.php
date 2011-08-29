@@ -178,6 +178,8 @@ a.silent:visited {
 #intro h2.about { background: url(../images/about.png) no-repeat 0 3px; }
 #intro h2.settings { background: url(../images/settings.png) no-repeat 0 3px; }
 #intro h2.processes { background: url(../images/processes.png) no-repeat 0 3px; }
+#intro h2.clustermap { background: url(../images/clustermap.png) no-repeat 0 3px; }
+#intro h2.graphandstats { background: url(../images/statsgraphs.png) no-repeat 0 3px; }
 
 form {
     padding :            5px;
@@ -208,7 +210,7 @@ table.properties {
 table.procs {
     text-align:          right;
     font-family:         <?=$display_vars['font_family_fixed']?>;
-    font-size:           <?=$display_vars['font_size_medium']?>;
+    font-size:           10px;
     border:              2px solid <?=$display_vars['color_gray_light']?>; }
 tr.procheader {
     text-align:          left;
