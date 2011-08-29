@@ -126,7 +126,7 @@ require_once('./common.inc.php');
 
                     <?= $clustername ?>
 
-                    <div class="cluster"> <?
+                    <div class="cluster append-bottom"> <?
                     foreach (array("init", "") as $type) {
                         ${$type . '_nb'} = sizeof(${$type . 'nodes'});
                         ${$type . '_size'} = @max(33, 100 / ${$type . '_nb'});
