@@ -177,6 +177,7 @@ a.silent:visited {
 #intro h2.overview { background: url(../images/overview.jpg) no-repeat 0 3px; }
 #intro h2.about { background: url(../images/about.png) no-repeat 0 3px; }
 #intro h2.settings { background: url(../images/settings.png) no-repeat 0 3px; }
+#intro h2.processes { background: url(../images/processes.png) no-repeat 0 3px; }
 
 form {
     padding :            5px;

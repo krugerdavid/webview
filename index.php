@@ -71,7 +71,51 @@ require_once('./common.inc.php');
                     <?
                     display_intro("overview");
                     check_ssi_system();
+
+
+                    $clustername = get_clustername();
+                    list($allnodes, $initnodes, $nodes) = get_nodes();
+
+                    ## Display openSSI overview ----------------------------------------- 
                     ?>
+
+                    <?= $clustername ?>
+
+                    <div class="cluster"> <?
+                    foreach (array("init", "") as $type) {
+                        ${$type . '_nb'} = sizeof(${$type . 'nodes'});
+                        ${$type . '_size'} = @max(33, 100 / ${$type . '_nb'});
+
+                        if (${$type . '_nb'} != 0) {
+                            ?>
+                                <div class="nodehead"><?= $type ?> nodes</div>
+                                <div class="nodes">
+                                    <div class="spacer"></div> <?
+                        foreach (${$type . 'nodes'} as ${$type}) {
+                            $status = strtr(${$type}->status, $GLOBALS["trstate"]);
+                            (!in_array($status, $GLOBALS["states"])) ? $status = "fault" : $status;
+                                ?>
+
+                                        <div style="float:left; width:<?= ${$type . '_size'} ?>%;">
+                                            <table>
+                                                <tr><td width="42px">
+                                                        <a class="silent" href="graph_disp.php?t=stats&#038;n=<?= ${$type}->id ?>#nodes">
+                                                            <img alt="node<?= ${$type}->id ?>" src="images/<?= 'small_' . $type . 'node_' . $status ?>.png"/></a></td>
+                                                    <td><div class="nodeslight">
+                                                            <div><b> &raquo; node <?= ${$type}->id; ?> : <?= ${$type}->hostname; ?></b></div>
+                                                            <div class="bartight">
+                                                                <? display_node_load(${$type}); ?>
+                                                            </div></div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div> <?
+                                                }
+                                            }
+                                                        ?>
+                                <div class="spacer"></div>
+                            </div> <? } ?>
+                    </div>
                 </div>
 
             </div>
