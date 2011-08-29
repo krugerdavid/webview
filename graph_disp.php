@@ -98,6 +98,7 @@ $files = list_files(DATADIR);
 
                 <div class="span-17 prepend-top last">
 
+                    <? 
                     display_intro($type);
                     check_ssi_system();
 

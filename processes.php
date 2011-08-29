@@ -317,7 +317,7 @@ require_once(CONFIGFILE);
 
 <br />
 
-<table class="procs">
+<table cellspacing="2" class="procs">
     <tr class="procheader"> <?
 foreach (array("user" => "user",
  "uid" => "uid",
