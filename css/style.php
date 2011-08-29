@@ -211,6 +211,7 @@ table.procs {
     text-align:          right;
     font-family:         <?=$display_vars['font_family_fixed']?>;
     font-size:           10px !important;
+    border-spacing: 2px !important;
     border:              2px solid <?=$display_vars['color_gray_light']?>; }
 tr.procheader {
     text-align:          left;
