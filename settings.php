@@ -124,7 +124,7 @@ require_once('./common.inc.php');
         require_once(CONFIGFILE);
                     ?>
 
-                    <br />
+                    <hr />
                     <form name="options" method="post" class="append-bottom" action="<?= $_SERVER['PHP_SELF'] ?>">
 
                         <div class="options span-8">

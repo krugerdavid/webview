@@ -58,7 +58,7 @@ $display_vars = $GLOBALS['display_vars'];
 body {
     margin:              0px;
     padding:             0px;
-    text-align:          justify;
+    text-align:          left;
     font-family:         <?=$display_vars['font_family']?>;
     font-size:           <?=$display_vars['font_size_medium']?>;
     color:               <?=$display_vars['color_gray_darker']?>;
@@ -98,7 +98,8 @@ a:hover {
 a.toggle {
     padding:             1px;
     margin:              1px;
-    font-family:         <?=$display_vars['font_family_fixed']?>; }
+    font-family:         <?=$display_vars['font_family_fixed']?>; 
+    font-size: 10px !important}
 a.header {
     font-size:           <?=$display_vars['font_size_kingsize']?>;
     color:               <?=$display_vars['color_gray_light']?>; }

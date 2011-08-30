@@ -53,7 +53,7 @@ switch ($size) {
         break;
     case "small":
         $height = 90;
-        $width  = 270;
+        $width  = 240;
         $legend = 0;
         $start  = "12h";
         break;
