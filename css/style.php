@@ -283,7 +283,7 @@ div.nodehead {
 
 div.cluster {            /* master container */
     width:               100%; }
-div.nodes, .options table  {              /* nodes (slaves, masters) container */
+div.nodes  {              /* nodes (slaves, masters) container */
     z-index:             0;
     border:              1px solid <?=$display_vars['color_gray_light']?>;
     padding:             10px; }
@@ -327,9 +327,11 @@ div.nodeinfo {           /* node details */
 div.spacer {
     clear:               both; }
 
-div.options {
-    float:               left;
-    width:               49%; }
+div.options table  {              
+    z-index:             0;
+    border:              1px solid <?=$display_vars['color_gray_light']?>;
+    padding:             0;
+    font-size:11px;}
 
 .options .submit { color: white; border:none; background: <?=$display_vars['color_blue']?>; padding:8px 14px; font-weight:bold; font-size:14px; border-radius:6px; -moz-border-radius:6px; -webkit-border-radius:6px; }
 
