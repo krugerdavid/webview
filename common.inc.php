@@ -412,11 +412,10 @@ function display_intro($location) {
                 ?>
                 <h2 class="title graphandstats">Stats</h2>
                 <p>Here you can view some graphical statistics about your openSSI cluster:</p>
-                <ul>
-                    <li><a href="#overview">Cluster overview</a> gathers links bringing to thematic stats pages, showing data accross the cluster. </li>
-                    <li><a href="#loads">Load overview</a> shows openSSI cumulated load for each node on the cluster.</li>
-                    <li><a href="#nodes">Node overview</a> gives statistics by node.</li>
-                </ul>
+                <p><a href="#overview">Cluster overview</a>: gathers links bringing to thematic stats pages, showing data accross the cluster. <br />
+                    <a href="#loads">Load overview</a>: shows openSSI cumulated load for each node on the cluster.<br />
+                    <a href="#nodes">Node overview</a>: gives statistics by node.</p>
+                <hr />
                 <?
                 break;
             case "loads":

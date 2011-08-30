@@ -67,7 +67,7 @@ require_once(CONFIGFILE);
                     <? display_menu(); ?>
                 </div>
 
-                <div class="span-18 prepend-top last"><?
+                <div class="span-17 prepend-top last"><?
                     display_intro("processes");
                     check_ssi_system();
 

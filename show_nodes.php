@@ -105,7 +105,7 @@ require_once('./common.inc.php');
                     <? display_menu(); ?>
                 </div>
 
-                <div class="span-18 prepend-top last">
+                <div class="span-17 prepend-top last">
 
                     <? display_intro("show_nodes");
 
@@ -134,7 +134,7 @@ require_once('./common.inc.php');
                         if (${$type . '_nb'} != 0) {
                             ?>
                                 <div class="nodehead"><?= $type ?> nodes (<a href="javascript:togglevisibilityall('^<?= $type ?>_node[1-9]+$')">toggle</a> details)</div>
-                                <div class="nodes">
+                                <div class="nodes append-bottom">
                                     <div class="spacer"></div> <?
                         foreach (${$type . 'nodes'} as ${$type}) {
                             $status = strtr(${$type}->status, $GLOBALS["trstate"]);
