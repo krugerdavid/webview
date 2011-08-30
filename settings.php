@@ -130,22 +130,28 @@ require_once('./common.inc.php');
                         <div class="options span-8">
                             <div class="nodehead">Paths</div>
                             <table>
-                                <tr><td><strong>rrdtool binary path</strong></td>
+                                <tr>
+                                    <td>RRDTool Binary Path:</td>
                                     <td><input type="text" name="rrdtool_path"
                                                value="<? $RRDTOOL_PATH ? print($RRDTOOL_PATH)
-                                     : print(find_path("rrdtool")); ?>"></input></td></tr>
+                                     : print(find_path("rrdtool")); ?>" /></td>
+                                </tr>
                             </table>
                         </div>
 
                         <div class="options span-8 last">
                             <div class="nodehead">Display Options</div>
                             <table>
-                                <tr><td width="10px"><input type="checkbox" name="use_transparency"
+                                <tr>
+                                    <td width="10px"><input type="checkbox" name="use_transparency"
                                         <? if ($USE_TRANSPARENCY)
-                                            echo "checked=\"checked\""; ?>></input></td>
-                                    <td><strong>use transparency to display web pages</strong></td></tr>
-                                <tr><td colspan="2">choose whether you want to use transparency on pages or not.
-                                        Works on IE and Mozilla(-likes), but can consume quite resources.</td></tr>
+                                            echo "checked=\"checked\""; ?> /></td>
+                                    <td>Use transparency to display web pages</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">Choose whether you want to use transparency on pages or not.
+                                        Works on IE and Mozilla(-likes), but can consume quite resources.</td>
+                                </tr>
                             </table>
                         </div>
 

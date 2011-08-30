@@ -283,7 +283,7 @@ div.nodehead {
 
 div.cluster {            /* master container */
     width:               100%; }
-div.nodes, options table  {              /* nodes (slaves, masters) container */
+div.nodes, .options table  {              /* nodes (slaves, masters) container */
     z-index:             0;
     border:              1px solid <?=$display_vars['color_gray_light']?>;
     padding:             10px; }
@@ -330,6 +330,8 @@ div.spacer {
 div.options {
     float:               left;
     width:               49%; }
+
+.options .submit { color: white; border:none; background: <?=$display_vars['color_blue']?>; padding:14px 8px; font-weight:bold; font-size:14px; }
 
 div.detail {
     <? if ($USE_TRANSPARENCY == true) { ?> opacity:0.9; filter: alpha(opacity=90); <? } ?>
