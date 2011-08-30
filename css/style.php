@@ -331,7 +331,7 @@ div.options {
     float:               left;
     width:               49%; }
 
-.options .submit { color: white; border:none; background: <?=$display_vars['color_blue']?>; padding:14px 8px; font-weight:bold; font-size:14px; }
+.options .submit { color: white; border:none; background: <?=$display_vars['color_blue']?>; padding:8px 14px; font-weight:bold; font-size:14px; border-radius:6px; -moz-border-radius:6px; -webkit-border-radius:6px; }
 
 div.detail {
     <? if ($USE_TRANSPARENCY == true) { ?> opacity:0.9; filter: alpha(opacity=90); <? } ?>

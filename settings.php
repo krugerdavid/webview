@@ -82,8 +82,8 @@ require_once('./common.inc.php');
                         /* basically check entries */
                         if (!ereg("^[0-9]{0,5}$", $sysproc_maxuid)) {
                             ?>
-                            <div class="warning_red">ERROR: system processes max UID must be an integer between 0 and 65535</div> <? } elseif ($rrdtool_path[0] != "/") { ?>
-                            <div class="warning_red">ERROR: rrdtool binary path does not look like a valid path</div> <?
+                            <div class="warning">System processes max UID must be an integer between 0 and 65535</div> <? } elseif ($rrdtool_path[0] != "/") { ?>
+                            <div class="warning">RRDTool binary path does not look like a valid path</div> <?
                 } else {
                     $variables = array("RRDTOOL_PATH", "USE_TRANSPARENCY",
                         "SYSPROC_MAXUID", "PREVENT_SYSPROC_MIGR");
@@ -111,12 +111,12 @@ require_once('./common.inc.php');
                             fputs($fp, $current);
                             fclose($fp);
                                     ?>
-                                    <div class="success">sucessfully saved</div> <? } else { ?>
-                                    <div class="warning">ERROR: the configuration file (<?= CONFIGFILE ?>) could not be saved, please verify that it can be written by the webserver user.</div> <?
+                                    <div class="success">Sucessfully saved</div> <? } else { ?>
+                                    <div class="warning">The configuration file (<?= CONFIGFILE ?>) could not be saved, please verify that it can be written by the webserver user.</div> <?
                 }
             } else {
                                 ?>
-                                <div class="warning_red">ERROR: the configuration file (<?= CONFIGFILE ?>) could not be opened.</div> <?
+                                <div class="warning">The configuration file (<?= CONFIGFILE ?>) could not be opened.</div> <?
                 }
             }
         }
@@ -157,7 +157,7 @@ require_once('./common.inc.php');
 
 
                         <div class="options span-17">
-                            <input type="submit" class="submit" name="save" value="save changes" />
+                            <input type="submit" class="submit" name="save" value="Save Changes" />
                         </div>
 
 
