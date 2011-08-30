@@ -66,7 +66,7 @@ require_once('./common.inc.php');
                     <? display_menu(); ?>
                 </div>
 
-                <div class="span-17 prepend-top last">
+                <div class="span-18 prepend-top last">
                     <? display_intro("about"); ?>
                     <h5>Thanks</h5>
                     <ul>

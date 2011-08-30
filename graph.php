@@ -177,7 +177,7 @@ switch ($type) {
         break;
     default: ?>
         <h1>Error</h1>
-        Wrong parameters passed to the graph creation function<br /> <?
+        <p>Wrong parameters passed to the graph creation function</p> <?
         exit;
 }
 

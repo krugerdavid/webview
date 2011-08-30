@@ -421,7 +421,7 @@ function display_intro($location) {
                 break;
             case "loads":
                 ?>
-                <h2>Stats</h2>
+                <h2 class="title graphandstats">Stats &raquo; Loads</h2>
                 <p>Here is a graphical overview of your openSSI cluster load.</p>
             <?
             break;
@@ -434,7 +434,7 @@ function display_intro($location) {
             break;
         case "cpu":
             ?>
-                <h3>Stats &raquo; cpu</h3>
+                <h2 class="title graphandstats">Stats &raquo; cpu</h2>
                 Here is a graphical overview of the cpu usage on selected nodes. <br />
                 NB: SMP computers have a maximal cpu occupation percentage of [number of cpus x 100].
             <?
