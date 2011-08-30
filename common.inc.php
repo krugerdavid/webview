@@ -443,7 +443,7 @@ function display_intro($location) {
                 $stats_what = $GLOBALS["stats_what"];
                 if (array_key_exists($location, $stats_what)) {
                     ?>
-                    <h2 class="title graphandstats">Stats &raquo; <?= $location ?></h2>
+                    <h2 class="title graphandstats">Stats &raquo; <?= $stats_what[$location] ?></h2>
                     <p>Here is a graphical overview of the <?= strtolower($stats_what[$location]) ?> on selected nodes.</p> <? } else { ?>
                     <h2>404</h2>
                     <p>I don't know where I am, so I can't say anything about the page you're currently viewing.
