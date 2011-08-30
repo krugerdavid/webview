@@ -180,7 +180,7 @@ $files = list_files(DATADIR);
                                 if (($c % 2) == 0)
                                     //echo "<tr>\n\t";
                             ?>
-                                    <div class="span-8 center">
+                                    <div class="span-8 center <? if (($c % 2) == 1) echo 'preprend-1 last'; ?>">
                                         <a class="silent" href="graph_disp.php?t=<?= $l ?>&#038;n=<?= $node ?>">
                                             <img alt="graph_<?= $l ?>" class="graph" src="graph.php?t=<?= $l ?>&#038;n=<?= $node ?>&#038;s=small" />
                                         </a>
