@@ -74,15 +74,11 @@ h1 {
     font-weight:         bold;
     color:               <?=$display_vars['color_gray']?>; }
 h2 {
-    padding:             5px;
-    line-height:         8px;
+
     font-weight:         bold;
-    font-size:           <?=$display_vars['font_size_big']?>;
+    font-size:           1.6em;
     color:               <?=$display_vars['color_gray_dark']?>;
-    border:              1px solid <?=$display_vars['color_gray_light']?>;
-    background-image:    url(h2_bg.jpg);
-    background-position: left top;
-    background-repeat:   no-repeat; }
+    }
 h2.warning {
     color:               <?=$display_vars['color_red']?>; }
 
@@ -276,11 +272,15 @@ div.legend {
     font-size:           <?=$display_vars['font_size_small']?>
     font-weight:         bold; }
 div.nodehead {
-    color:               <?=$display_vars['color_gray_dark']?>;
-    padding:             0px 0px 1px 3px;
-    background-image:    url(nd_bg.png);
-    background-position: bottom left;
-    background-repeat:   no-repeat; }
+
+    color:#565753; 
+    border-radius:6px 6px 0 0; -moz-border-radius:6px 6px 0 0; -webkit-border-radius:6px 6px 0 0; 
+    border:              1px solid <?=$display_vars['color_gray']?>;
+    border-bottom: none !important;
+    background-color:#f8f7f5; 
+    padding: 4px 6px; 
+    font:bold 12px Arial, Helvetica, sans-serif;
+    }
 
 
 ## Network map display
