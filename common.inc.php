@@ -265,8 +265,8 @@ function display_node_details(&$node) {
                                  : print("no information available") ;
                 ?></td>
         </tr> <?
-    while (list($key, $val) = each($details)) {
-        $row_color = ($row_count % 2) ? $color1 : $color2;
+            while (list($key, $val) = each($details)) {
+                $row_color = ($row_count % 2) ? $color1 : $color2;
                     ?>
             <tr style="background-color:<?= $row_color ?>">
                 <td style="font-weight:bold;"><?= $key ?></td> <?
@@ -304,7 +304,7 @@ function display_node_load(&$node) {
         $color = (($load < LOAD_LOW) ? $display_vars["color_green"] :
                         (($load < LOAD_HIGH) ? $display_vars["color_orange"] : $display_vars["color_red"]));
     }
-    ?>
+                ?>
     <div style="position:relative; width:100%; background-color:<?= $bgcolor ?>">
         <div class="coloredbar" style="background-color:white; width:100%;">&nbsp;</div>
         <div class="coloredbar" style="background-color:<?= $color ?>; width:<?= $width ?>%;">&nbsp;</div>
@@ -315,7 +315,7 @@ function display_node_load(&$node) {
 }
 
 function display_node_info(&$node) {
-    ?>
+                ?>
     <table class="properties">
         <tr><td class="item">node <?= $node->get('id'); ?></td>
             <td class="load"><? display_node_load($node); ?></td></tr>
@@ -385,18 +385,18 @@ function display_intro($location) {
             ?>
                 <h2 class="title settings">Settings</h2>
                 <p>Here you can configure some openSSI webView parameters.</p>
-            <?
-            break;
-        case "about":
-            ?>
+                <?
+                break;
+            case "about":
+                ?>
                 <h2 class="title about">About openSSI-webView</h2>
                 <p class="version">Version <?= OW_VERSION ?></p>
                 <p>openSSI-webView is designed to be a simple and easy-to-use monitoring system for your <a href="http://openssi.org">openSSI</a> cluster. Its goal is to provide a quick overview of the cluster state, by graphing vital functions and graphically representing key figures. It also aims to provide a simple illustration of process migration, by allowing users to migrate their processes across the cluster.</p>
 
-            <?
-            break;
-        case "overview":
-            ?>
+                <?
+                break;
+            case "overview":
+                ?>
                 <h2 class="title overview">Overview</h2>
                 <p>Welcome to openSSI-webView, a simple openSSI monitoring web interface. Here you can have a quick overview of your openSSI cluster, keep an eye on each node status (offline, comingup, up...) and load. Clicking on nodes icons brings you to the node statistics page.</p>
                 <?
@@ -405,11 +405,11 @@ function display_intro($location) {
                 ?>
                 <h2 class="title clustermap">Cluster Map</h2>
                 <p>Here you can view your cluster nodes, and some stats about them: load, current state, boot time, hardware details, and so on.
-                You can hover computer icons to display more information, and clicking them will bring the statistics page.</p>
-            <?
-            break;
-        case "stats":
-            ?>
+                    You can hover computer icons to display more information, and clicking them will bring the statistics page.</p>
+                <?
+                break;
+            case "stats":
+                ?>
                 <h2 class="title graphandstats">Stats</h2>
                 <p>Here you can view some graphical statistics about your openSSI cluster:</p>
                 <ul>
@@ -423,36 +423,40 @@ function display_intro($location) {
                 ?>
                 <h2 class="title graphandstats">Stats &raquo; Loads</h2>
                 <p>Here is a graphical overview of your openSSI cluster load.</p>
-            <?
-            break;
-        case "processes":
-            ?>
+                <?
+                break;
+            case "processes":
+                ?>
                 <h2 class="title processes">Processes</h2>
                 <p>Here you can view all the processes running on your openSSI cluster. You can focus your attention on a specific node, or user, and even
                     migrate user processes from one node to another.</p>
-            <?
-            break;
-        case "cpu":
-            ?>
+                <?
+                break;
+            case "cpu":
+                ?>
                 <h2 class="title graphandstats">Stats &raquo; cpu</h2>
                 Here is a graphical overview of the cpu usage on selected nodes. <br />
                 NB: SMP computers have a maximal cpu occupation percentage of [number of cpus x 100].
-            <?
-            break;
-        default: # sort of 404
-            $stats_what = $GLOBALS["stats_what"];
-            if (array_key_exists($location, $stats_what)) {
-                ?>
+                <?
+                break;
+            default: # sort of 404
+                $stats_what = $GLOBALS["stats_what"];
+                if (array_key_exists($location, $stats_what)) {
+                    ?>
                     <h2 class="title graphandstats">Stats &raquo; <?= $location ?></h2>
                     <p>Here is a graphical overview of the <?= strtolower($stats_what[$location]) ?> on selected nodes.</p> <? } else { ?>
                     <h2>404</h2>
                     <p>I don't know where I am, so I can't say anything about the page you're currently viewing.
-                    Well, hmm, how are you? :)</p>
-                </div></div>
-                <br /><br />
-                <? display_menu();
-                display_footer(); ?>
-                </body></html> <?
+                        Well, hmm, how are you? :)</p>
+                </div>
+                </div>
+                </div>
+
+                <? display_footer(); ?>
+
+                </body>
+                </html>
+                <?
                 exit;
             }
             break;
