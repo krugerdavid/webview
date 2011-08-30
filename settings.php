@@ -111,8 +111,8 @@ require_once('./common.inc.php');
                             fputs($fp, $current);
                             fclose($fp);
                                     ?>
-                                    <div class="warning_green">sucessfully saved</div> <? } else { ?>
-                                    <div class="warning_red">ERROR: the configuration file (<?= CONFIGFILE ?>) could not be saved, please verify that it can be written by the webserver user.</div> <?
+                                    <div class="success">sucessfully saved</div> <? } else { ?>
+                                    <div class="warning">ERROR: the configuration file (<?= CONFIGFILE ?>) could not be saved, please verify that it can be written by the webserver user.</div> <?
                 }
             } else {
                                 ?>
@@ -125,10 +125,10 @@ require_once('./common.inc.php');
                     ?>
 
                     <br />
-                    <form name="options" method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
+                    <form name="options" method="post" class="append-bottom" action="<?= $_SERVER['PHP_SELF'] ?>">
 
-                        <div class="options">
-                            <div class="nodehead">paths</div>
+                        <div class="options span-8">
+                            <div class="nodehead">Paths</div>
                             <table>
                                 <tr><td><strong>rrdtool binary path</strong></td>
                                     <td><input type="text" name="rrdtool_path"
@@ -137,8 +137,8 @@ require_once('./common.inc.php');
                             </table>
                         </div>
 
-                        <div class="options">
-                            <div class="nodehead">display options</div>
+                        <div class="options span-8 last">
+                            <div class="nodehead">Display Options</div>
                             <table>
                                 <tr><td width="10px"><input type="checkbox" name="use_transparency"
                                         <? if ($USE_TRANSPARENCY)
@@ -149,38 +149,12 @@ require_once('./common.inc.php');
                             </table>
                         </div>
 
-                        <div class="spacer"></div>
-                        <br />
 
-                        <div class="options">
-                            <div class="nodehead">process migration options</div>
-                            <table>
-                                <tr><td width="10px"><input type="checkbox" name="prevent_sysproc_migr"
-                                        <? if ($PREVENT_SYSPROC_MIGR)
-                                            echo "checked=\"checked\""; ?>></input></td>
-                                    <td><strong>prevent system processes migration</strong></td></tr>
-                                <tr><td colspan="2">check this if you want to prevent system processes (defined below)
-                                        to be migrated from openSSI webView interface.</td></tr>
-                            </table>
-                            <table>
-                                <tr><td width="150px"><strong>system processes max UID</strong></td>
-                                    <td><input type="text" name="sysproc_maxuid"
-                                               value="<? $SYSPROC_MAXUID ? print($SYSPROC_MAXUID)
-                                                                             : print("1000"); ?>"></input><br /></td></tr>
-                                <tr><td colspan="2">set here the maximum uid under which processes will be considered
-                                        as 'system processes'.</td></tr>
-                            </table>
+                        <div class="options span-17">
+                            <input type="submit" class="submit" name="save" value="save changes" />
                         </div>
 
-                        <div class="options">
-                            <table style="height:110px">
-                                <tr><td style="text-align:right; vertical-align:bottom;">
-                                        <input type="submit" name="save" value="save changes"></input>
-                                    </td></tr>
-                            </table>
-                        </div>
 
-                        <div class="spacer"></div>
                     </form>
                 </div>  
 

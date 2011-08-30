@@ -177,10 +177,6 @@ a.silent:visited {
 #intro h2.clustermap { background: url(../images/clustermap.png) no-repeat 0 3px; }
 #intro h2.graphandstats { background: url(../images/statsgraphs.png) no-repeat 0 3px; }
 
-form {
-    padding :            5px;
-    border :             1px solid <?=$display_vars['color_gray_lighter']?>;
-    font-size:           <?=$display_vars['font_size_small']?>; }
 
 img {
     border:              0px;
@@ -287,7 +283,7 @@ div.nodehead {
 
 div.cluster {            /* master container */
     width:               100%; }
-div.nodes {              /* nodes (slaves, masters) container */
+div.nodes, options table  {              /* nodes (slaves, masters) container */
     z-index:             0;
     border:              1px solid <?=$display_vars['color_gray_light']?>;
     padding:             10px; }
