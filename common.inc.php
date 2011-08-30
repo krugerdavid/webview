@@ -434,7 +434,7 @@ function display_intro($location) {
                 break;
             case "cpu":
                 ?>
-                <h2 class="title graphandstats">Stats &raquo; Cpu usage</h2>
+                <h2 class="title graphandstats">Stats &raquo; cpu</h2>
                 Here is a graphical overview of the cpu usage on selected nodes. <br />
                 NB: SMP computers have a maximal cpu occupation percentage of [number of cpus x 100].
                 <?
