@@ -89,7 +89,7 @@ require_once('./common.inc.php');
                         if (${$type . '_nb'} != 0) {
                             ?>
                                 <div class="nodehead"><?= $type ?> nodes</div>
-                                <div class="nodes append-bottom">
+                                <div class="nodes">
                                     <div class="spacer"></div> <?
                         foreach (${$type . 'nodes'} as ${$type}) {
                             $status = strtr(${$type}->status, $GLOBALS["trstate"]);

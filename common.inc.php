@@ -138,7 +138,7 @@ function get_clustername() {
     if ($retval != 0)
         return "<h2 class=\"warning\">Warning! clustername is not set</h2>";
     else
-        return "<h2>&raquo; $clustername</h2>\n";
+        return "<h2>$clustername</h2>\n";
 }
 
 function get_nodes() {
