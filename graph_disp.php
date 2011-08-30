@@ -174,25 +174,25 @@ $files = list_files(DATADIR);
                                     </select>
                                 </form> <? } ?>
 
-                            <table> <?
+                            <div class="graph_group span-17"> <?
                             $c = 0;
                             foreach ($stats_what as $l => $text) {
                                 if (($c % 2) == 0)
-                                    echo "<tr>\n\t";
+                                    //echo "<tr>\n\t";
                             ?>
-                                    <td align="center">
+                                    <div class="span-8 center">
                                         <a class="silent" href="graph_disp.php?t=<?= $l ?>&#038;n=<?= $node ?>">
                                             <img alt="graph_<?= $l ?>" class="graph" src="graph.php?t=<?= $l ?>&#038;n=<?= $node ?>&#038;s=small" />
                                         </a>
                                         <div style="text-align:center; font-size:9px; font-weight: bold"><?= $text ?></div>
-                                    </td>
+                                    </div>
                                     <?
                                     if (($c % 2) == 1)
-                                        echo "</tr>";
+                                        echo '<div class="clearfix"></div>';
                                     $c++;
                                 }
                                 ?>
-                            </table></div> <?
+                            </div></div> <?
                         } else {
 
                             ## ======================================================================
