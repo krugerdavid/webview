@@ -111,34 +111,37 @@ $files = list_files(DATADIR);
                     ##  Overall stats
                     ##
                     ## ======================================================================
+                    ?>
+                    <? if ($type == "stats") { ?>
 
-                    if ($type == "stats") {
-                        ?>
 
-                        <!-- cluster overview -->
+                        <!-- CLUSTER OVERVIEW -->
                         <h2 id="overview"><a id="cluster_tog" class="toggle" href="javascript:toggledisplay('cluster')">[-]</a> Cluster overview</h2>
-                        <div id="cluster_block" class="block"><div class="centertable"><table> <?
-                    $c = 0;
-                    foreach ($stats_what as $l => $text) {
-                        if (($c % 3) == 0)
-                            echo "<tr>\n\t";
-                            ?>
-                                        <td style="width:40px"><a href="graph_disp.php?t=<?= $l ?>"><img alt="<?= $l ?>" src="./images/<?= $l ?>.png" /></a></td>
-                                        <td><a href="graph_disp.php?t=<?= $l ?>"><?= $text ?></a></td> <?
-                                if (($c % 3) == 2)
-                                    echo "</tr>";
-                                $c++;
-                            }
-                        ?>
-                                </table></div></div>
+                        <div id="cluster_block" class="block">
+                            <div class="centertable">
+                                <div class="main_menu">
+                                    <? foreach ($stats_what as $l => $text): ?>
+                                        <div class="span-5">
+                                            <a class="prepend-1 span-4 <?= $l ?>" href="graph_disp.php?t=<?= $l ?>"><?= $text ?></a>
+                                        </div>
+                                    <? endforeach; ?>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /CLUSTER OVERVIEW -->
 
-                        <!-- load overview -->
+                        <!-- LOAD OVERVIEW -->
                         <h2 id="loads"><a id="load_tog" class="toggle" href="javascript:toggledisplay('load')">[-]</a> Load overview</h2>
-                        <div id="load_block" class="block"><table>
-                                <tr><td align="center">
+                        <div id="load_block" class="block">
+                            <table>
+                                <tr>
+                                    <td align="center">
                                         <a class="silent" href="graph_disp.php?t=loads"> <img alt="graph" class="graph" src="graph.php?t=loads&#038;s=big&#038;st=12h" /> </a>
-                                    </td></tr>
-                            </table></div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!-- /LOAD OVERVIEW -->
 
                         <!-- node overview -->
                         <h2 id="nodes"><a id="node_tog" class="toggle" href="javascript:toggledisplay('node')">[-]</a> Node overview</h2>
@@ -155,14 +158,14 @@ $files = list_files(DATADIR);
                                         else
                                             $nodes[] = $nd;
                                     }
-                            ?>
+                                        ?>
                                 <form action="<?= $_SERVER['PHP_SELF'] ?>">
                                     Select the node you want to display stats for:<br/>
                                     <select name="node" onchange="switchpage(this)"> <? foreach (array("init", "") as $type) { ?>
                                             <optgroup label="<?= $type ?> nodes"> <?
                             foreach (${$type . 'nodes'} as $i) {
                                 $id = $i->id;
-                                    ?>
+                                                ?>
                                                     <option <? if ($node == $id)
                                         echo "selected=\"selected\""; ?> value="graph_disp.php?t=stats&#038;n=<?= $id ?>#nodes">
                                                         node <?= $id; ?>
@@ -171,13 +174,14 @@ $files = list_files(DATADIR);
                                     </select>
                                 </form> <? } ?>
 
+
                             <div class="graph_group span-17 append-bottom"> <?
                             $c = 0;
                             foreach ($stats_what as $l => $text) {
                                 if (($c % 2) == 0)
                                 //echo "<tr>\n\t";
                                     
-                                ?>
+                                            ?>
                                     <div class="span-8 center <? if (($c % 2) == 1)
                             echo 'prepend-1 last'; ?>">
                                         <a class="silent" href="graph_disp.php?t=<?= $l ?>&#038;n=<?= $node ?>">
@@ -191,17 +195,19 @@ $files = list_files(DATADIR);
                                     $c++;
                                 }
                                 ?>
-                            </div></div> <?
-                        } else {
+                            </div>
+                        </div>
+                    <?
+                    } else {
 
-                            ## ======================================================================
-                            ##
-                            ##  Detailled view of a specific quantity, on a specific node
-                            ##
-                            ## ======================================================================
+                        ## ======================================================================
+                        ##
+                        ##  Detailled view of a specific quantity, on a specific node
+                        ##
+                        ## ======================================================================
 
-                            if ($node != "" or $type == "loads") {
-                                    ?>
+                        if ($node != "" or $type == "loads") {
+                            ?>
 
                             <table>
                                 <?
@@ -215,17 +221,17 @@ $files = list_files(DATADIR);
                                             <div class="legend"><?= $text ?></div>
                                         </td></tr> <? } ?>
                             </table> <?
-                } else {
+                            } else {
 
-                    ## ======================================================================
-                    ##
-                    ##  Overview of a specific quantity, all over the cluster
-                    ##
-                    ## ====================================================================== 
+                                ## ======================================================================
+                                ##
+                                ##  Overview of a specific quantity, all over the cluster
+                                ##
+                                ## ====================================================================== 
                                 ?>
 
                             <div class="span-17 append-bottom"> <?
-                    foreach ($files as $i => $file) {
+                                foreach ($files as $i => $file) {
                                     ?>
                                     <div class="prepend-1 span-16 append-bottom">
                                         <a class="span-16" class="silent" href="graph_disp.php?n=<?= $i ?>&#038;t=<?= $type ?>">
@@ -233,18 +239,18 @@ $files = list_files(DATADIR);
                                         </a>
                                         <p class="legend">node <?= $i ?></p>
                                     </div>
-                                <? } ?>
+                            <? } ?>
                             </div> <?
+                        }
                     }
-                }
-                        ?>
+                    ?>
                 </div>
 
             </div>
         </div>
 
 
-        <? display_footer(); ?>
+<? display_footer(); ?>
 
     </body>
 </html>
