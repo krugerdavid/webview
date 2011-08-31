@@ -117,22 +117,23 @@ $files = list_files(DATADIR);
 
                         <!-- CLUSTER OVERVIEW -->
                         <h2 id="overview"><a id="cluster_tog" class="toggle" href="javascript:toggledisplay('cluster')">[-]</a> Cluster overview</h2>
-                        <div id="cluster_block" class="block">
-                            <div class="centertable">
-                                <div class="main_menu">
-                                    <? foreach ($stats_what as $l => $text): ?>
-                                        <div class="span-5">
-                                            <a class="prepend-1 span-4 <?= $l ?>" href="graph_disp.php?t=<?= $l ?>"><?= $text ?></a>
-                                        </div>
-                                    <? endforeach; ?>
-                                </div>
+                        <div id="cluster_block" class="span-17 append-bottom">
+                            <div class="main_menu">
+                                <? $c = 0; // variable to break in 3 columns ?>
+                                <? foreach ($stats_what as $l => $text): ?>
+                                
+                                    <div class="span-5">
+                                        <a class="prepend-1 span-4 <?= $l ?> <? if (($c % 3) == 2) echo 'last'; ?>" href="graph_disp.php?t=<?= $l ?>"><?= $text ?></a>
+                                    </div>
+                                <? $c++ ?>
+                                <? endforeach; ?>
                             </div>
                         </div>
                         <!-- /CLUSTER OVERVIEW -->
 
                         <!-- LOAD OVERVIEW -->
                         <h2 id="loads"><a id="load_tog" class="toggle" href="javascript:toggledisplay('load')">[-]</a> Load overview</h2>
-                        <div id="load_block" class="block">
+                        <div id="load_block" class="span-17 append-bottom">
                             <table>
                                 <tr>
                                     <td align="center">
