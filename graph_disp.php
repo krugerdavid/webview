@@ -98,15 +98,12 @@ $files = list_files(DATADIR);
 
                 <div class="span-17 prepend-top last">
 
-                    <? 
+                    <?
                     display_intro($type);
                     check_ssi_system();
 
-                    javascript_warning(); ?>
-
-                    <!--[if gte IE 5.5000]>
-                    <br /><br />
-                    <![endif]-->
+                    javascript_warning();
+                    ?>
 
                     <?
                     ## ======================================================================
@@ -178,9 +175,11 @@ $files = list_files(DATADIR);
                             $c = 0;
                             foreach ($stats_what as $l => $text) {
                                 if (($c % 2) == 0)
-                                    //echo "<tr>\n\t";
-                            ?>
-                                    <div class="span-8 center <? if (($c % 2) == 1) echo 'prepend-1 last'; ?>">
+                                //echo "<tr>\n\t";
+                                    
+                                ?>
+                                    <div class="span-8 center <? if (($c % 2) == 1)
+                            echo 'prepend-1 last'; ?>">
                                         <a class="silent" href="graph_disp.php?t=<?= $l ?>&#038;n=<?= $node ?>">
                                             <img alt="graph_<?= $l ?>" class="graph" src="graph.php?t=<?= $l ?>&#038;n=<?= $node ?>&#038;s=small" />
                                         </a>
@@ -203,18 +202,18 @@ $files = list_files(DATADIR);
 
                             if ($node != "" or $type == "loads") {
                                     ?>
-                            <br />
-                            <table> <?
-                    foreach (array("d" => "daily (5mn average)",
-                "w" => "weekly (30mn average)",
-                "m" => "monthly (2h average)",
-                "y" => "yearly (1day average)") as $l => $text) {
-                                        ?>
+
+                            <table>
+                                <?
+                                foreach (array("d" => "daily (5mn average)",
+                            "w" => "weekly (30mn average)",
+                            "m" => "monthly (2h average)",
+                            "y" => "yearly (1day average)") as $l => $text) {
+                                    ?>
                                     <tr><td align="center">
                                             <img alt="graph<?= $l ?>" class="graph" src="graph.php?n=<?= $node ?>&#038;t=<?= $type ?>&#038;st=1<?= $l ?>&#038;s=big" />
-                                            <br />
                                             <div class="legend"><?= $text ?></div>
-                                            <br /></td></tr> <? } ?>
+                                        </td></tr> <? } ?>
                             </table> <?
                 } else {
 
@@ -223,21 +222,19 @@ $files = list_files(DATADIR);
                     ##  Overview of a specific quantity, all over the cluster
                     ##
                     ## ====================================================================== 
-                                    ?>
-                            <br />
-                            <table width="100%"> <?
+                                ?>
+
+                            <div class="span-17 append-bottom"> <?
                     foreach ($files as $i => $file) {
-                                        ?>
-                                    <tr><td align="center">
-                                            <a class="silent" href="graph_disp.php?n=<?= $i ?>&#038;t=<?= $type ?>">
-                                                <img alt="graph<?= $i ?>" class="graph" src="graph.php?n=<?= $i ?>&#038;t=<?= $type ?>&#038;st=1d&#038;s=big" />
-                                            </a>
-                                            <br />
-                                            <div class="legend">node <?= $i ?></div>
-                                            <br />
-                                        </td></tr>
+                                    ?>
+                                    <div class="prepend-1 span-16 append-bottom">
+                                        <a class="span-16" class="silent" href="graph_disp.php?n=<?= $i ?>&#038;t=<?= $type ?>">
+                                            <img alt="graph<?= $i ?>" class="graph" src="graph.php?n=<?= $i ?>&#038;t=<?= $type ?>&#038;st=1d&#038;s=big" />
+                                        </a>
+                                        <p class="legend">node <?= $i ?></p>
+                                    </div>
                                 <? } ?>
-                            </table> <?
+                            </div> <?
                     }
                 }
                         ?>

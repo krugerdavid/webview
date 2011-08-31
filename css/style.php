@@ -266,8 +266,10 @@ div.indented {
     text-align:          justify; }
 div.legend {
     text-align:          center;
-    font-size:           <?=$display_vars['font_size_small']?>
-    font-weight:         bold; }
+    font-size:           <?=$display_vars['font_size_small']?>;
+    font-weight:         bold; 
+    }
+    
 div.nodehead {
 
     color:#565753; 
