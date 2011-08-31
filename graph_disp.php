@@ -121,7 +121,7 @@ $files = list_files(DATADIR);
                             <div class="main_menu">
                                 <? $c = 0; // variable to break in 3 columns ?>
                                 <? foreach ($stats_what as $l => $text): ?>
-                                    <div class="span-5<? if (($c % 3) == 1) echo ' last'; ?>">
+                                    <div class="span-4 append-bottom">
                                         <a class="<?= $l ?> prepend-1 span-4" href="graph_disp.php?t=<?= $l ?>"><?= $text ?></a>
                                     </div>
                                 <? $c++ ?>

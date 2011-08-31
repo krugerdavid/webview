@@ -183,6 +183,8 @@ a.silent:visited {
 .main_menu a.mem { background:url(../images/mem.png) no-repeat 0 0;   }
 .main_menu a.net { background:url(../images/net.png) no-repeat 0 0;   }
 .main_menu a.proc { background:url(../images/processes.png) no-repeat 0 0;   }
+.main_menu a.cpu { background:url(../images/cpu.png) no-repeat 0 0;   }
+
 
 img {
     border:              0px;
