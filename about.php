@@ -70,8 +70,9 @@ require_once('./common.inc.php');
                     <? display_intro("about"); ?>
                     <h5>Thanks</h5>
                     <ul>
-                        <li>Special thanks to Tobi Oetiker, the creator of the powerful and limitless <a href="http://people.ee.ethz.ch/~oetiker/webtools/rrdtool/">RRDTool</a>,</li>
-                        <li>Thanks to Dariusz Arciszewski, for its eyecandy <a href="http://www.deviantart.com/deviation/6814504/">KrystalKurve</a> icons,</li>
+                        <li>Very special thanks to Kilian Cavalotti, the developer behind the very first visual monitoring tool for <a href="http://openssi.org">openSSI</a>. We just wanted to add our part to the openssi family.</li> 
+                        <li>Thanks to Tobi Oetiker, the creator of the powerful and limitless <a href="http://people.ee.ethz.ch/~oetiker/webtools/rrdtool/">RRDTool</a>,</li>
+                        <li>Thanks to Dariusz Arciszewski, for its eyecandy <a href="http://www.deviantart.com/deviation/6814504/">KrystalKurve</a> icons, and to <a href="http://www.fatcow.com/free-icons">Farm-fresh</a> for its icons too</li>
                         <li>And a big thanks to all <a href="http://openssi.org">openSSI</a> developers, who are giving the community a wonderful clustering solution.</li>
                     </ul>
 
