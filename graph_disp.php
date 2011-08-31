@@ -121,8 +121,8 @@ $files = list_files(DATADIR);
                             <div class="main_menu">
                                 <? $c = 0; // variable to break in 3 columns ?>
                                 <? foreach ($stats_what as $l => $text): ?>
-                                    <div class="span-5<?= $l ?> <? if (($c % 3) == 1) echo ' last'; ?>">
-                                        <a class="prepend-1 span-4" href="graph_disp.php?t=<?= $l ?>"><?= $text ?></a>
+                                    <div class="span-5<? if (($c % 3) == 1) echo ' last'; ?>">
+                                        <a class="<?= $l ?> prepend-1 span-4" href="graph_disp.php?t=<?= $l ?>"><?= $text ?></a>
                                     </div>
                                 <? $c++ ?>
                                 <? endforeach; ?>
