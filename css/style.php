@@ -264,7 +264,7 @@ div.warning_<?=$color?> {
 div.indented {
     padding:             0 10px 10px 30px;
     text-align:          justify; }
-div.legend {
+.legend {
     text-align:          center;
     font-size:           <?=$display_vars['font_size_small']?>;
     font-weight:         bold; 
