@@ -34,7 +34,7 @@
     openssi-webview CSS definitions
     ---------------------------------------------------------------------
     Started      on Mon, 26 Apr 2004 16:20:08 +0200
-    Last updated on Wed, 10 Nov 2004 15:24:00 +0100
+    Last updated on Wed, 31 Ago 2011 19:20:00 +0430
     ---------------------------------------------------------------------
 */
 
@@ -300,9 +300,8 @@ div.nodes  {              /* nodes (slaves, masters) container */
     border:              1px solid <?=$display_vars['color_gray_light']?>;
     padding:             10px; }
 div.nodeslight {
-    padding:             5px;
-    border:              1px solid <?=$display_vars['color_gray_lighter']?>;
     font-size:           <?=$display_vars['font_size_small']?>;}
+    
 div.bartight {
     padding:             1px;
     border:              1px solid <?=$display_vars['color_gray_light']?>; }
@@ -315,6 +314,7 @@ div.node {               /* node container */
     margin-left:         auto;
     margin-right:        auto;
     text-align:          center; }
+    
 div.nodepicture {        /* node picture */
     z-index:             0;
     position:            relative;
@@ -323,8 +323,10 @@ div.nodepicture {        /* node picture */
     margin-left:         auto;
     margin-right:        auto;
     text-align:          center; }
+    
 span.nodename {          /* node name */
     visibility:          visible; }
+    
 div.nodeinfo {           /* node details */
     z-index:             0;
     visibility:          hidden;
