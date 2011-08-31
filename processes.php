@@ -219,48 +219,35 @@ require_once(CONFIGFILE);
                         <input type="hidden" name="s" value="<?= $sort_by ?>"/>
                         <div class="options">
                             <div class="nodehead">Options (<a href="processes.php">Reset filters</a>)</div>
-                            <table> <? foreach (array("user", "node") as $type) { ?>
-                                    <tr><td width="150px">Select <?= $type ?> to display</td>
-                                        <td><select name="<?= $type[0] ?>" onchange="javascript:this.form.submit()">
+                            <table> 
+                                <? foreach (array("user") as $type) { ?>
+                                    <tr>
+                                        <td width="150px">Select <?= $type ?> to display</td>
+                                        <td>
+                                            <select name="<?= $type[0] ?>" onchange="javascript:this.form.submit()">
                                                 <option value="">all</option> <?
-                        if (sizeof(${$type . 's'}) != 0) {
-                            foreach (${$type . 's'} as $item) {
-                                ?>
+                                if (sizeof(${$type . 's'}) != 0) {
+                                    foreach (${$type . 's'} as $item) {
+                                            ?>
                                                         <option <? if (${$type} == $item)
                                                 echo "selected=\"selected\""; ?> value="<?= $item ?>"><?= $item ?></option> <?
                                             }
                                         }
-                        ?>
-                                            </select></td></tr> <?
-                                            }
-                                            if ($PREVENT_SYSPROC_MIGR) {
-                        ?>
+                                    ?>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                <?
+                                }
+                                if ($PREVENT_SYSPROC_MIGR) {
+                                    ?>
                                     <tr><td colspan="2">
                                             <input type="checkbox" name="ns" <? if ($no_syst)
-                                    echo "checked=\"checked\""; ?> onclick="javascript:this.form.submit()"/>Hide system processes (uid &#060; <?= $SYSPROC_MAXUID ?>)</td></tr>
-                                    <? } ?>
+                                        echo "checked=\"checked\""; ?> onclick="javascript:this.form.submit()"/>Hide system processes (uid &#060; <?= $SYSPROC_MAXUID ?>)</td></tr>
+<? } ?>
                             </table>
                         </div>
 
-                        <div class="options">
-                            <div class="nodehead">Process migration</div>
-                            <table <? if ($migr_disable) { ?> style="color:<?= $display_vars["color_gray_light"] ?>" <? } ?>>
-                                <tr><td colspan="2">To migrate a process to a specific node, first select the node you want to migrate the process to,
-                                        then click on the process PID in the list below.</td></tr>
-                                <tr><td width="150px">Select node to migrate to</td>
-                                    <td><select <? if ($migr_disable)
-                                        echo "disabled"; ?> name="mt" onchange="javascript:this.form.submit()">
-                                            <option value="">choose a node</option> <?
-                                            $fastnode = @exec("fastnode", $fastout, $fastret);
-                                            if ($fastret == 0)
-                                                
-                                        ?> <option value="<?= $fastnode ?>">-- fastest (<?= $fastnode ?>) --</option> <? foreach (explode(" ", exec("cluster")) as $item) { ?>
-                                                <option <? if ($migr_node == $item)
-                                                echo "selected=\"selected\""; ?> value="<?= $item ?>"><?= $item ?></option> <? } ?>
-                                        </select>
-                                    </td></tr>
-                            </table>
-                        </div>
                         <div class="spacer"></div>
                     </form>
 
@@ -275,7 +262,7 @@ require_once(CONFIGFILE);
                 ## ==================================================================
 
                 if ($ps_error) {
-                        ?>
+                    ?>
                         <br />
                         <h1>Error</h1>
                         <div class="warning_red">
@@ -283,11 +270,11 @@ require_once(CONFIGFILE);
                     switch ($ps_error) {
                         case 1:
                             if (sizeof($ps_output) != 0) {
-                                    ?>
+                                ?>
                                     </div>
                                     <br /><b>Error output: </b> <br />
                                     <pre> <? foreach ($ps_output as $line) { ?>
-                                            <?= $line ?><br /> <? } ?>
+                                        <?= $line ?><br /> <? } ?>
                                     </pre>
                                     <?
                                 }
@@ -305,8 +292,8 @@ require_once(CONFIGFILE);
                 <br /><br />
         </body>
     </html> <?
-            exit;
-        }
+                exit;
+            }
 
 ## ==================================================================
 ##
@@ -319,18 +306,18 @@ require_once(CONFIGFILE);
 
 <table cellspacing="2" class="procs">
     <tr class="procheader"> <?
-foreach (array("user" => "user",
- "uid" => "uid",
- "node" => "node",
- "pid" => "pid",
- "pcpu" => "%cpu",
- "pmem" => "%mem",
- "nice" => "nice",
- "tty" => "tty",
- "stat" => "state",
- "start" => "start",
- "time" => "time",
- "comm" => "command") as $key => $text) {
+            foreach (array("user" => "user",
+        "uid" => "uid",
+        "node" => "node",
+        "pid" => "pid",
+        "pcpu" => "%cpu",
+        "pmem" => "%mem",
+        "nice" => "nice",
+        "tty" => "tty",
+        "stat" => "state",
+        "start" => "start",
+        "time" => "time",
+        "comm" => "command") as $key => $text) {
                 ?>
             <td><?= $text ?> <a class="procheader"
                                 href="processes.php?u=<?= $user ?>&#038;ns=<?= $no_syst ?>&#038;n=<?= $node ?>&#038;s=d<?= $key ?>">^</a>/<a
@@ -349,9 +336,9 @@ foreach (array("user" => "user",
         ?>
 
         <tr style="background-color:<?= $row_color ?>"> <?
-    foreach ($proc as $key => $field) {
-        switch ($key) {
-            case "pid" :
+        foreach ($proc as $key => $field) {
+            switch ($key) {
+                case "pid" :
                     ?>
                         <td><a class="pid" title="migrate process <?= $field ?>"
                                href="processes.php?u=<?= $user ?>&#038;ns=<?= $no_syst ?>&#038;n=<?= $node ?>&#038;pid=<?= $field ?>&#038;mt=<?= $migr_node ?>&#038;s=<?= $sort_by ?>"><?= $field ?></a></td> <?
@@ -360,23 +347,23 @@ foreach (array("user" => "user",
             case "pmem" :
                 $color = (($field < 30) ? $display_vars["color_green_light"] :
                                 (($field < 75) ? $display_vars["color_orange_light"] : $display_vars["color_red_light"]));
-                    ?>
+                ?>
                         <td bgcolor="<?= $color ?>"><?= $field ?></td> <?
                 break;
             case "user":
             case "comm" :
-                    ?>
+                ?>
                         <td align="left"><?= $field ?></td> <?
                 break;
             default :
-                    ?>
+                ?>
                         <td><?= $field ?></td> <?
         }
     }
-        ?>
+    ?>
         </tr> <?
-        $row_count++;
-    }
+    $row_count++;
+}
     ?>
 </table>
 </div>  

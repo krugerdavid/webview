@@ -427,8 +427,7 @@ function display_intro($location) {
             case "processes":
                 ?>
                 <h2 class="title processes">Processes</h2>
-                <p>Here you can view all the processes running on your openSSI cluster. You can focus your attention on a specific node, or user, and even
-                    migrate user processes from one node to another.</p>
+                <p>Here you can view all the processes running on your openSSI cluster. You can focus your attention on an user.</p>
                 <?
                 break;
             case "cpu":
