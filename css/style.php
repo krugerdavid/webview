@@ -186,6 +186,7 @@ a.silent:visited {
 .main_menu a.cpu { background:url(../images/cpu.png) no-repeat 0 0;   }
 .main_menu a.swap { background:url(../images/swap.png) no-repeat 0 0;   }
 
+tbody tr:nth-child(even) td, tbody tr.even td { background: none !important }
 
 img {
     border:              0px;

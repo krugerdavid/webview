@@ -214,8 +214,8 @@ require_once(CONFIGFILE);
                     ## ================================================================== 
                     ?>
 
-                    <br />
-                    <form name="options" action="<?= $_SERVER['PHP_SELF'] ?>">
+
+                    <form class="append-bottom" name="options" action="<?= $_SERVER['PHP_SELF'] ?>">
                         <input type="hidden" name="s" value="<?= $sort_by ?>"/>
                         <div class="options">
                             <div class="nodehead">Options (<a href="processes.php">Reset filters</a>)</div>
@@ -263,7 +263,6 @@ require_once(CONFIGFILE);
 
                 if ($ps_error) {
                     ?>
-                        <br />
                         <h1>Error</h1>
                         <div class="warning_red">
                             Your request did not output any result. <br /> <?
@@ -271,12 +270,12 @@ require_once(CONFIGFILE);
                         case 1:
                             if (sizeof($ps_output) != 0) {
                                 ?>
-                                    </div>
-                                    <br /><b>Error output: </b> <br />
-                                    <pre> <? foreach ($ps_output as $line) { ?>
+                        </div>
+                        <b>Error output: </b> <br />
+                        <pre> <? foreach ($ps_output as $line) { ?>
                                         <?= $line ?><br /> <? } ?>
-                                    </pre>
-                                    <?
+                        </pre>
+                        <?
                                 }
                                 break;
                             case 2:
@@ -286,12 +285,15 @@ require_once(CONFIGFILE);
                                 break;
                         }
                         ?>
-                    </div></div>
-                <? display_menu();
-                display_footer(); ?>
-                <br /><br />
-        </body>
-    </html> <?
+                    </div>
+                </div>
+                </div>
+
+                <? display_footer(); ?>
+
+                </body>
+                </html>
+                <?
                 exit;
             }
 
@@ -302,9 +304,8 @@ require_once(CONFIGFILE);
 ## ================================================================== 
             ?>
 
-<br />
 
-<table cellspacing="2" class="procs">
+<table cellspacing="2" class="procs append-bottom">
     <tr class="procheader"> <?
             foreach (array("user" => "user",
         "uid" => "uid",
